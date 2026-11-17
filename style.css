@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+
+  body {
+  margin: 0;
+  min-height: 100vh;
+  background: url("https://cdn.phototourl.com/anon/2026-11-15-a570dbbe-b021-45e2-abde-cef1cb2ef499.jpg") center center / cover no-repeat fixed;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+}
+
+.scene {
+  padding: 30px 10px;
+  position: relative;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #ffe58a;
+  font-size: 32px;
+  text-shadow: 0 0 15px gold;
+}
+
+.tree {
+  position: relative;
+  width: 280px;
+  height: 380px;
+  margin: 30px auto 15px;
+}
+
+.star {
+  position: absolute;
+  top: -15px;
+  left: 115px;
+  color: gold;
+  font-size: 55px;
+  z-index: 5;
+  text-shadow: 0 0 20px yellow;
+}
+
+.layer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: solid transparent;
+  border-right: solid transparent;
+  border-bottom: solid #087b43;
+  filter: drop-shadow(0 0 8px #00ff88);
+}
+
+.layer1 {
+  top: 35px;
+  border-left-width: 75px;
+  border-right-width: 75px;
+  border-bottom-width: 120px;
+}
+
+.layer2 {
+  top: 105px;
+  border-left-width: 105px;
+  border-right-width: 105px;
+  border-bottom-width: 150px;
+}
+
+.layer3 {
+  top: 190px;
+  border-left-width: 135px;
+  border-right-width: 135px;
+  border-bottom-width: 160px;
+}
+
+.trunk {
+  position: absolute;
+  top: 340px;
+  left: 120px;
+  width: 40px;
+  height: 45px;
+  background: #75421f;
+}
+
+.gift {
+  position: absolute;
+  bottom: -5px;
+  width: 55px;
+  height: 45px;
+  border: 3px solid white;
+  border-radius: 5px;
+}
+
+.gift1 {
+  left: 35px;
+  background: #d92332;
+}
+
+.gift2 {
+  right: 35px;
+  background: #e9bd35;
+}
+
+button {
+  margin-top: 15px;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #d92332;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff5361;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#musicBox {
+  width: 200px;
+  height: 113px;
+  margin: 15px auto;
+}
+
+#musicFrame {
+  width: 200px;
+  height: 113px;
+  border: none;
+  border-radius: 10px;
+}
+
+.snow {
+  position: fixed;
+  top: -10px;
+  color: white;
+  animation: fall linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+.wish {
+  color: #ffdf00;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow:
+    0 0 5px #ffff00,
+    0 0 15px #ff9900,
+    0 0 25px #ff6600;
+}
