@@ -1,29 +1,242 @@
-<div class="scene">
-  <h1> 11D </h1>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11D - Chúc Điểm Cao</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  <div class="tree">
-    <div class="star">★</div>
-    <div class="layer layer1"></div>
-    <div class="layer layer2"></div>
-    <div class="layer layer3"></div>
-    <div class="trunk"></div>
-    <div class="gift gift1"></div>
-    <div class="gift gift2"></div>
-  </div>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: url("https://cdn.phototourl.com/anon/2026-11-15-a570dbbe-b021-45e2-abde-cef1cb2ef499.jpg") center center / cover no-repeat fixed;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-  <p class="wish">CHUC BAN THI DUOC DIEM CAO NHA!</p>
+        .scene {
+            padding: 30px 10px;
+            position: relative;
+            min-height: 100vh;
+        }
 
-  <button id="musicBtn" onclick="toggleMusic()">
-    🎵 BẬT NHẠC
-  </button>
+        h1 {
+            color: #ffe58a;
+            font-size: 32px;
+            text-shadow: 0 0 15px gold;
+        }
 
-  <div id="musicBox">
-    <iframe
-      id="musicFrame"
-      src="about:blank"
-      allow="autoplay"
-      title="Christmas music">
-    </iframe>
-  </div>
-</div>
-<div class="credit">CRE PHUC</div>
+        .tree {
+            position: relative;
+            width: 280px;
+            height: 380px;
+            margin: 30px auto 15px;
+        }
+
+        .star {
+            position: absolute;
+            top: -15px;
+            left: 115px;
+            color: gold;
+            font-size: 55px;
+            z-index: 5;
+            text-shadow: 0 0 20px yellow;
+        }
+
+        .layer {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: solid transparent;
+            border-right: solid transparent;
+            border-bottom: solid #087b43;
+            filter: drop-shadow(0 0 8px #00ff88);
+        }
+
+        .layer1 {
+            top: 35px;
+            border-left-width: 75px;
+            border-right-width: 75px;
+            border-bottom-width: 120px;
+        }
+
+        .layer2 {
+            top: 105px;
+            border-left-width: 105px;
+            border-right-width: 105px;
+            border-bottom-width: 150px;
+        }
+
+        .layer3 {
+            top: 190px;
+            border-left-width: 135px;
+            border-right-width: 135px;
+            border-bottom-width: 160px;
+        }
+
+        .trunk {
+            position: absolute;
+            top: 340px;
+            left: 120px;
+            width: 40px;
+            height: 45px;
+            background: #75421f;
+        }
+
+        .gift {
+            position: absolute;
+            bottom: -5px;
+            width: 55px;
+            height: 45px;
+            border: 3px solid white;
+            border-radius: 5px;
+        }
+
+        .gift1 {
+            left: 35px;
+            background: #d92332;
+        }
+
+        .gift2 {
+            right: 35px;
+            background: #e9bd35;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 13px 25px;
+            border: none;
+            border-radius: 25px;
+            background: #d92332;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff5361;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #musicBox {
+            width: 200px;
+            height: 113px;
+            margin: 15px auto;
+        }
+
+        #musicFrame {
+            width: 200px;
+            height: 113px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .snow {
+            position: fixed;
+            top: -10px;
+            color: white;
+            animation: fall linear infinite;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+            }
+        }
+
+        .wish {
+            color: #ffdf00;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 
+                0 0 5px #ffff00,
+                0 0 15px #ff9900,
+                0 0 25px #ff6600;
+        }
+
+        .credit {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scene">
+        <h1> 11D </h1>
+
+        <div class="tree">
+            <div class="star">★</div>
+            <div class="layer layer1"></div>
+            <div class="layer layer2"></div>
+            <div class="layer layer3"></div>
+            <div class="trunk"></div>
+            <div class="gift gift1"></div>
+            <div class="gift gift2"></div>
+        </div>
+
+        <p class="wish">CHUC BAN THI DUOC DIEM CAO NHA!</p>
+
+        <button id="musicBtn" onclick="toggleMusic()">
+            🎵 BẬT NHẠC
+        </button>
+
+        <div id="musicBox">
+            <iframe
+                id="musicFrame"
+                src="about:blank"
+                allow="autoplay"
+                title="Christmas music">
+            </iframe>
+        </div>
+    </div>
+    <div class="credit">CRE PHUC</div>
+
+    <script>
+        // Nhạc Noel
+        let playing = false;
+
+        function toggleMusic() {
+            const frame = document.getElementById("musicFrame");
+            const btn = document.getElementById("musicBtn");
+
+            if (!playing) {
+                frame.src = "https://www.youtube.com/embed/FN7ALfpGxiI?autoplay=1";
+                btn.innerText = "⏸ TẮT NHẠC";
+                playing = true;
+            } else {
+                frame.src = "about:blank";
+                btn.innerText = "🎵 BẬT NHẠC";
+                playing = false;
+            }
+        }
+
+        // Tạo tuyết rơi
+        for (let i = 0; i < 50; i++) {
+            const snow = document.createElement("div");
+
+            snow.className = "snow";
+            snow.innerText = "❄";
+
+            snow.style.left = Math.random() * 100 + "vw";
+            snow.style.fontSize = (Math.random() * 15 + 10) + "px";
+            snow.style.animationDuration = (Math.random() * 5 + 3) + "s";
+            snow.style.animationDelay = Math.random() * 5 + "s";
+
+            document.body.appendChild(snow);
+        }
+    </script>
+</body>
+</html>
